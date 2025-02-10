@@ -1,0 +1,2 @@
+ALTER TABLE projecttracking.sprint_issue_comments DROP CONSTRAINT sprint_issue_comments_sprint_issue_comment_contents_fk;
+ALTER TABLE projecttracking.sprint_issue_comments DROP COLUMN sprint_issue_comment_content_id;

@@ -1,0 +1,2 @@
+ALTER TABLE auth.workspace_participants ADD role_id text NULL;
+ALTER TABLE auth.workspace_participants ADD CONSTRAINT workspace_participants_workspace_participant_roles_fk FOREIGN KEY (role_id) REFERENCES auth.workspace_participant_roles(id);

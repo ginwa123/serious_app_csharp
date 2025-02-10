@@ -1,0 +1,5 @@
+ALTER TABLE auth.workspace_participants
+DROP CONSTRAINT workspace_participants_workspace_participant_roles_fk;
+
+ALTER TABLE auth.workspace_participants
+DROP COLUMN role_id;

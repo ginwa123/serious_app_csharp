@@ -1,0 +1,2 @@
+ALTER TABLE projecttracking.project_participant_pendings
+RENAME TO project_participant_requests;
