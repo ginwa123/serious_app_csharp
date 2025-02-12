@@ -1,23 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-api
+  name: api
   namespace: argo-demo
   labels:
-    app.kubernetes.io/name: my-api
+    app.kubernetes.io/name: api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: my-api
+      app.kubernetes.io/name: api
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: my-api
+        app.kubernetes.io/name: api
     spec:
       containers:
-      - name: my-api
-        image: my-api-image:latest  # Change to your actual API image
+      - name: api
+        imagePullPolicy: Never       # Important: Prevents pulling from Docker Hub
+        image: api-image:latest   # Use the local image
         ports:
           - name: http
             containerPort: 5000
@@ -25,12 +26,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-api
+  name: api
   namespace: argo-demo
 spec:
   type: ClusterIP
   selector:
-    app.kubernetes.io/name: my-api
+    app.kubernetes.io/name: api
   ports:
     - protocol: TCP
       port: 5000
@@ -60,7 +61,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: my-api
+            name: api
             port:
               number: 5000
 ---
