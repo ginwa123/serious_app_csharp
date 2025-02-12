@@ -56,37 +56,7 @@ builder.Services.AddTransient<App.Worker.Scheduler.ApiUrlPermissionCleaner>();
 builder.Services.AddTransient<App.Worker.Scheduler.ApiUrlCleaner>();
 
 var app = builder.Build();
-// using (var scope = app.Services.CreateScope())
-// {
-//     using var cts = new CancellationTokenSource();
-//     // Simulate a cancellation after 5 seconds
-//     cts.CancelAfter(5000);
-//     var lockRepo = scope.ServiceProvider.GetRequiredService<IPgLockRepository>();
-//     lockRepo.ReleaseAllLockAsync(cancellationToken: cts.Token).GetAwaiter().GetResult();
-// }
-// app.Services.UseScheduler(scheduler =>
-// {
-//     var appSettings = app.Services.GetRequiredService<IAppSettings>();
 
-//     if (appSettings.SeriousApp.Worker.ApiUrlPermissionCleaner.IsEnabled)
-//     {
-//         scheduler
-//         .Schedule<App.Worker.Scheduler.ApiUrlPermissionCleaner>()
-//         .Cron(appSettings.SeriousApp.Worker.ApiUrlPermissionCleaner.CronJob)
-//         .RunOnceAtStart()
-//         ;
-//     }
-
-//     if (appSettings.SeriousApp.Worker.ApiUrlCleaner.IsEnabled)
-//     {
-//         scheduler
-//         .Schedule<App.Worker.Scheduler.ApiUrlCleaner>()
-//         .Cron(appSettings.SeriousApp.Worker.ApiUrlCleaner.CronJob)
-//         .RunOnceAtStart()
-//         ;
-//     }
-
-// });
 
 
 // Configure the HTTP request pipeline.
