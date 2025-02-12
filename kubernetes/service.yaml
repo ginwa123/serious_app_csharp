@@ -63,3 +63,8 @@ spec:
             name: my-api
             port:
               number: 5000
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: argo-demo
